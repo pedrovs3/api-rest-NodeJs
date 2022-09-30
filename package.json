@@ -18,6 +18,10 @@
     "sucrase": "^3.25.0"
   },
   "dependencies": {
-    "express": "^4.18.1"
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "mariadb": "^3.0.1",
+    "sequelize": "^6.23.2",
+    "sequelize-cli": "^6.5.1"
   }
 }
