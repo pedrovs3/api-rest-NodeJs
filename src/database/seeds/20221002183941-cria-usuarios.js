@@ -1,7 +1,7 @@
 const bcryptjs = require('bcryptjs');
 
 module.exports = {
-  async up(queryInterface, Sequelize) {
+  async up(queryInterface) {
     await queryInterface.bulkInsert('users', [{
       nome: 'Luiz',
       email: 'Luiz1@gmail.com',
@@ -25,6 +25,5 @@ module.exports = {
     }], {});
   },
 
-  // eslint-disable-next-line no-empty-function
   async down() {},
 };
