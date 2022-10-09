@@ -4,7 +4,7 @@ export default class Aluno extends Model {
   static init(sequelize) {
     super.init({
       nome: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         defaultValue: '',
         validate: {
           len: {
@@ -14,7 +14,7 @@ export default class Aluno extends Model {
         },
       },
       sobrenome: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         defaultValue: '',
         validate: {
           len: {
@@ -24,7 +24,7 @@ export default class Aluno extends Model {
         },
       },
       email: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         defaultValue: '',
         unique: {
           msg: 'Email must be unique.',
