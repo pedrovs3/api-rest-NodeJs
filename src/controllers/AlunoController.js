@@ -1,10 +1,21 @@
 import Aluno from '../models/Aluno';
+import Photo from '../models/Photo';
 
 class AlunoController {
   // Mostra todos os alunos da tabela
   async index(req, res) {
-    const alunos = await Aluno.findAll();
-    res.status(200).json(alunos);
+    try {
+      const alunos = await Aluno.findAll({
+        attributes: ['id', 'nome', 'sobrenome', 'email', 'idade', 'peso', 'altura'],
+        order: [['id', 'DESC']],
+        include: {
+          model: Photo,
+        },
+      });
+      res.status(200).json({ alunos });
+    } catch (error) {
+      // res.status(500).json({ errors: [error.errors] });
+    }
   }
 
   // Mostra um aluno da tabela

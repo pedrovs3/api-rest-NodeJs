@@ -9,6 +9,16 @@ class PhotoController {
     return upload(req, res, async (error) => {
       if (error) res.status(400).json({ errors: [error.code] });
 
+      try {
+        const { originalname, filename } = req.file;
+        const { aluno_id } = req.body;
+        const foto = await Photo.create({ originalname, filename, aluno_id });
+
+        return res.status(200).json(foto);
+      } catch (error) {
+        res.status(404).json({ errors: ['Esse aluno nao existe.'] });
+      }
+
       const { originalname, filename } = req.file;
       const { aluno_id } = req.body;
       const foto = await Photo.create({ originalname, filename, aluno_id });
